@@ -2,18 +2,25 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\HomeProfileController;
+use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\ResumeController;
+use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\CertificateController;
+use App\Http\Controllers\Api\ReviewController;
+use App\Http\Controllers\Api\ContactController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::get('/testing', function () {
+    echo "Abhiram";
 });
+
+Route::get('profile', [HomeProfileController::class, 'profile']);
+Route::get('about', [AboutController::class, 'about']);
+Route::get('resume', [ResumeController::class, 'resume']);
+Route::get('projects', [ProjectController::class, 'projects']);
+Route::get('certificates', [CertificateController::class, 'certificates']);
+Route::get('reviews', [ReviewController::class, 'reviews']);
+Route::post('contact', [ContactController::class, 'contact']);
